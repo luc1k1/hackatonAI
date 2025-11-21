@@ -45,7 +45,7 @@ Features
 
 -   Modular ML pipeline
 -   Python backend API
--   Ready for Android integration
+-   Ready for Android integration and work with Andorid app in ```master```
 -   Lightweight and hackathon‑friendly structure
 
 ------------------------------------------------------------------------
