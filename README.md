@@ -35,7 +35,9 @@ Installation
     
     ```pip install -r requirements.txt```
 
-4.  Run the test script:
+5. Create .env and get API key of gemini 2.5 flash
+
+6.  Run the test script:
 
     ```python test_run.py```
 
