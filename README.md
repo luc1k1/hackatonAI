@@ -1,26 +1,36 @@
-HackatonAI
+<h1 style="color: #1E90FF;">ExplainIt</h1>
 
-Project: AI + Android
-Author: luc1k1 & dyingangell
-Year: 2025
+
+Project: **AI + Android application**
+
+Author: **luc1k1** & **dyingangell**
+
+Start year: **2025**
+
 
 ------------------------------------------------------------------------
 
 Overview
 
-HackatonAI is an experimental project combining machine learning
+ExplainIt is an experimental project combining machine learning
 capabilities with an Android application.
 It includes a Python backend, ML modules, and mobile integration.
 
 ------------------------------------------------------------------------
 
-Repository Structure
+Repository Structure:
 
-/ai — machine learning models & scripts
-/backend — server-side logic & API
-.gitignore
-requirements.txt
-test_run.py — example test runner
+ExplainIt/
+|
+├── ai/             # machine learning models & scripts
+|
+├── backend/        # server-side logic & API
+|
+├── .gitignore
+|
+├── requirements.txt
+|
+└── test_run.py     # example test runner
 
 ------------------------------------------------------------------------
 
