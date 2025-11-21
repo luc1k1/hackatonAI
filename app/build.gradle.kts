@@ -79,8 +79,9 @@ dependencies {
     implementation("org.apache.poi:poi-ooxml:5.2.3")
     
     implementation("org.apache.xmlbeans:xmlbeans:5.1.1")
-    implementation("com.fasterxml.woodstox:woodstox-core:6.5.0") 
-    
+    implementation("com.fasterxml.woodstox:woodstox-core:6.5.0")
+    implementation(libs.androidx.compose.animation)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

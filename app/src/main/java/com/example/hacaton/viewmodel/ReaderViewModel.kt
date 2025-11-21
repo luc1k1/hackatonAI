@@ -31,7 +31,8 @@ data class ExplanationItem(
     val title: String? = null,
     val explanation: String? = null,
     val isLoading: Boolean = true,
-    val error: String? = null
+    val error: String? = null,
+    val isPinned: Boolean = false // Added pinned state
 )
 
 class ReaderViewModel(application: Application) : AndroidViewModel(application) {
@@ -60,7 +61,11 @@ class ReaderViewModel(application: Application) : AndroidViewModel(application) 
     fun explainText(text: String) {
         val newItem = ExplanationItem(originalText = text)
         val currentList = _explanations.value.toMutableList()
-        currentList.add(0, newItem)
+        
+        // Add new item after pinned items
+        val pinnedCount = currentList.count { it.isPinned }
+        currentList.add(pinnedCount, newItem) // Add at index = number of pinned items
+        
         _explanations.value = currentList
 
         viewModelScope.launch {
@@ -70,7 +75,7 @@ class ReaderViewModel(application: Application) : AndroidViewModel(application) 
                 val updatedItem = newItem.copy(
                     isLoading = false,
                     title = response.title,
-                    explanation = response.summary
+                    explanation = response.text
                 )
                 
                 updateAndSaveExplanations(updatedItem)
@@ -92,6 +97,42 @@ class ReaderViewModel(application: Application) : AndroidViewModel(application) 
         }
         _explanations.value = updatedList
         saveExplanationsForFile(currentFileUri, updatedList)
+    }
+
+    fun togglePin(id: String) {
+        val currentList = _explanations.value.toMutableList()
+        val index = currentList.indexOfFirst { it.id == id }
+        if (index != -1) {
+            val item = currentList[index]
+            val newItem = item.copy(isPinned = !item.isPinned)
+            
+            // Remove old item and re-insert based on new pin status
+            currentList.removeAt(index)
+            
+            // Logic: Pinned items first, then Unpinned items (keeping relative order if possible, or adding to top of section)
+            // Re-sort: Pinned (descending), then original order? Or stable sort?
+            // Simplest: If pinning -> move to index 0 (or end of pinned group).
+            // If unpinning -> move to after pinned group.
+            
+            // Let's just re-sort everything: Pinned first, then keep existing order for others?
+            // Better: Use sortedByDescending { it.isPinned } which is stable.
+            
+            // We insert the modified item back first
+            currentList.add(index, newItem) 
+            
+            // Then sort
+            val sortedList = currentList.sortedByDescending { it.isPinned }
+            
+            _explanations.value = sortedList
+            saveExplanationsForFile(currentFileUri, sortedList)
+        }
+    }
+
+    fun deleteExplanation(id: String) {
+        val currentList = _explanations.value.toMutableList()
+        currentList.removeIf { it.id == id }
+        _explanations.value = currentList
+        saveExplanationsForFile(currentFileUri, currentList)
     }
 
     fun openFile(uri: Uri) {
@@ -153,13 +194,11 @@ class ReaderViewModel(application: Application) : AndroidViewModel(application) 
 
     private fun readFileContent(uri: Uri): String {
         val contentResolver = getApplication<Application>().contentResolver
-        val mimeType = contentResolver.getType(uri)
-        val fileName = getFileName(uri)
-
         return try {
             contentResolver.openInputStream(uri)?.use { inputStream ->
+                val mimeType = contentResolver.getType(uri)
                 val isDocx = mimeType?.contains("wordprocessingml.document") == true ||
-                        fileName?.endsWith(".docx", ignoreCase = true) == true
+                        uri.toString().endsWith(".docx", ignoreCase = true)
 
                 when {
                     isDocx -> readDocx(inputStream)

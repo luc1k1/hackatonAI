@@ -13,7 +13,7 @@ data class ExplanationRequest(val text: String)
 
 data class ExplanationResponse(
     val title: String,
-    val summary: String
+    val text: String
 )
 
 // Retrofit Interface
@@ -25,7 +25,7 @@ interface ExplanationApi {
 // Retrofit Client
 object RetrofitClient {
     // IMPORTANT: Replace with your real server URL
-    private const val BASE_URL = "https://7c0980da5b76.ngrok-free.app/"
+    private const val BASE_URL = "https://b3357e73f436.ngrok-free.app/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(120, TimeUnit.SECONDS) // Время на соединение с сервером
