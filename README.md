@@ -16,21 +16,6 @@ ExplainIt is an experimental project combining machine learning
 capabilities with an Android application.
 It includes a Python backend, ML modules, and mobile integration.
 
-------------------------------------------------------------------------
-
-Repository Structure:
-
-ExplainIt/
-|
-├── ai/             # machine learning models & scripts
-|
-├── backend/        # server-side logic & API
-|
-├── .gitignore
-|
-├── requirements.txt
-|
-└── test_run.py     # example test runner
 
 ------------------------------------------------------------------------
 
@@ -38,18 +23,21 @@ Installation
 
 1.  Clone the repository:
 
-    git clone https://github.com/luc1k1/hackatonAI.git
-    cd hackatonAI
+    ```git clone https://github.com/luc1k1/ExplainIt.git```
+    
+    ```cd hackatonAI```
 
-2.  (Recommended) Create and activate a virtual environment:
+3.  (Recommended) Create and activate a virtual environment:
 
-    python3 -m venv venv
-    source venv/bin/activate   # Windows: venv\Scripts\activate
-    pip install -r requirements.txt
+    ```python3 -m venv venv```
+    
+    ```source venv/bin/activate```  # Windows: ```venv\Scripts\activate```
+    
+    ```pip install -r requirements.txt```
 
-3.  Run the test script:
+4.  Run the test script:
 
-    python test_run.py
+    ```python test_run.py```
 
 ------------------------------------------------------------------------
 
