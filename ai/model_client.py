@@ -10,7 +10,7 @@ if not GEMINI_API_KEY:
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def generate(prompt: str) -> str:
-    """Generate content using Gemini API """
+    """Generate  content using Gemini API """
     try:
         response = client.models.generate_content(
             model=MODEL_NAME,
