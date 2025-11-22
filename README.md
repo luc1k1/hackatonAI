@@ -1,60 +1,140 @@
-<h1 style="color: #1E90FF;">ExplainIt</h1>
+ExplainIt 🚀
+============
 
+[![License: Custom Non-Commercial](https://img.shields.io/badge/License-NonCommercial-blue.svg)]
+[![Python](https://img.shields.io/badge/backend-python-3.12-blue.svg)]
+[![Kotlin](https://img.shields.io/badge/android-kotlin-1.8-blue.svg)]
 
-Project: **AI + Android application**
+**ExplainIt** is an experimental project combining Machine Learning (ML) and Android. 
+It features a Python backend, ML modules, and a mobile client to provide intelligent user interaction.
 
-Author: **luc1k1** & **dyingangell**
+--------------------------------------------------------------------------------
+Contents
+--------
+- Description
+- Features
+- Architecture
+- Installation
+    - Backend
+    - Android App
+- Usage
+- Examples
+- Future Plans
+- Contributing
+- License
+- Contact
+- Acknowledgements
 
-Start year: **2025**
+--------------------------------------------------------------------------------
+Description
+-----------
+ExplainIt allows users to interact with ML models through an Android app.
+- Python backend processes requests and communicates with ML pipelines
+- Android client sends and receives data from the backend
+- Modular ML pipeline allows adding new models and improving training
 
+--------------------------------------------------------------------------------
+Features
+--------
+- Python REST API backend
+- Integration with ML models (inference, training)
+- Android app written in Kotlin
+- Lightweight structure for hackathons and prototyping
+- Test and debug scripts (e.g., test_run.py)
 
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Architecture
+------------
+    Android Client  <-->  Backend API  -->  ML Pipeline
 
-**Overview**
+- Android Client: UI that sends requests to the backend
+- Backend API: Receives requests, processes them, and forwards to ML pipeline
+- ML Pipeline: Performs ML inference and returns results
 
-ExplainIt is an experimental project combining machine learning
-capabilities with an Android application.
-
-It includes a Python backend, ML modules, and mobile integration.
-
-
-------------------------------------------------------------------------
-
-**Installation**
-
-1.  Clone the repository:
-
+--------------------------------------------------------------------------------
+Installation
+------------
+### Backend
+1. Clone repository:
     ```git clone https://github.com/luc1k1/ExplainIt.git```
-    
-    ```cd hackatonAI```
+    ```cd ExplainIt```
 
-3.  (Recommended) Create and activate a virtual environment:
-
+2. Create virtual environment:
     ```python3 -m venv venv```
-    
-    ```source venv/bin/activate```  **Windows:** ```venv\Scripts\activate```
-    
+   
+    ```source venv/bin/activate```   # macOS/Linux
+   
+    ```# venv\Scripts\activate```    # Windows
+
+4. Install dependencies:
     ```pip install -r requirements.txt```
 
-5. Create .env and get API key of gemini 2.5 flash
+5. Create .env file for API keys:
+    ```GEMINI_API_KEY=your_api_key_here```
 
-6.  Run the test script:
-
+6. Test backend:
     ```python test_run.py```
 
-------------------------------------------------------------------------
+### Android App
+1. Open the 'app' folder in Android Studio
+2. Ensure required SDK and Kotlin versions
+3. Set backend API URL in code or build.gradle
+4. Run on emulator or physical device
 
-**Features**
+--------------------------------------------------------------------------------
+Usage
+-----
+1. Open the Android app
+2. Enter a text/query
+3. The backend sends it to the ML model
+4. Response is returned and displayed in the app
 
--   Modular ML pipeline
--   Python backend API
--   Ready for Android integration and work with Andorid app in ```master branch```
--   Lightweight and hackathon‑friendly structure
+--------------------------------------------------------------------------------
+Examples
+--------
+Input: "Explain quantum computing in simple terms."
+Output: "Quantum computing is..."
 
-------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Future Plans
+------------
+- Automated model training
+- New API endpoints (e.g., classification, translation)
+- Improved Android UI/UX
+- Support for multiple ML frameworks
+- Cloud deployment for backend
 
-**Future Plans**
+--------------------------------------------------------------------------------
+Contributing
+------------
+1. Fork the repository
+2. Create a new branch: ```git checkout -b feature/your-feature```
+3. Make changes and test
+4. Create Pull Request with description
 
--   Add fully automated model training
--   Improve Android interface
--   Expand backend endpoints
+Please follow the Code of Conduct and add tests where possible.
+
+--------------------------------------------------------------------------------
+License
+-------
+Custom Non-Commercial License:
+
+1. You may use and modify the code **for non-commercial purposes only**.  
+2. Any modifications, enhancements, or derivative works **must be published back to this repository**.  
+3. You may not sell, license, or distribute this code or derivative works for commercial purposes.  
+4. All rights and credits to the original authors (luc1k1) must remain intact.  
+
+By using this code, you agree to these terms.
+
+--------------------------------------------------------------------------------
+Contact
+-------
+Author: **luc1k1**  & **dyingangell**
+
+GitHub: https://github.com/luc1k1  & https://github.com/dyingangell
+
+--------------------------------------------------------------------------------
+Acknowledgements
+----------------
+- Thanks to all contributors
+- Inspiration from the ML and Android communities
