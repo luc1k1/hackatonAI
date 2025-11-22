@@ -1,9 +1,9 @@
 ExplainIt 🚀
 ============
 
-[![License: Custom Non-Commercial](https://img.shields.io/badge/License-NonCommercial-blue.svg)]
-[![Python](https://img.shields.io/badge/backend-python-3.12-blue.svg)]
-[![Kotlin](https://img.shields.io/badge/android-kotlin-1.8-blue.svg)]
+[![License: CC BY-NC-SA](https://img.shields.io/badge/License-CC%20BY--NC--SA-blue.svg)]
+[![Python](https://img.shields.io/badge/backend-Python%203.12-blue.svg)]
+[![Kotlin](https://img.shields.io/badge/Android-Kotlin%201.8-blue.svg)]
 
 **ExplainIt** is an experimental project combining Machine Learning (ML) and Android. 
 It features a Python backend, ML modules, and a mobile client to provide intelligent user interaction.
